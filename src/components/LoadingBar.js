@@ -2,11 +2,13 @@
 import React from "react";
 import "./LoadingBar.css";
 
-const LoadingBar = () => (
-  <div className="loading-bar">
-    <div className="loading-spinner"></div>
-    <p>Yükleniyor...</p>
-  </div>
-);
+const LoadingBar = () => {
+  return (
+    <div className="loading-container">
+      <div className="spinner"></div>
+      <div className="loading-message">Lütfen bekleyiniz...</div>
+    </div>
+  );
+};
 
 export default LoadingBar;

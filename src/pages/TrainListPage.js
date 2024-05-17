@@ -4,7 +4,6 @@ import axios from "axios";
 import TrainDetails from "../components/TrainDetails";
 import SuccessMessage from "../components/SuccessMessage";
 import "./TrainListPage.css";
-import { API_URL_ADD } from "../constants/api";
 
 const TrainListPage = ({ trainData, onBack }) => {
   const [selectedTrains, setSelectedTrains] = useState([]);
@@ -60,7 +59,7 @@ const TrainListPage = ({ trainData, onBack }) => {
       }));
 
       axios
-        .post(API_URL_ADD, {
+        .post("https://ticket-tracer-xxetoj7zsa-uc.a.run.app/tcdd/add", {
           request: requestPayload,
         })
         .then((response) => {
@@ -79,42 +78,44 @@ const TrainListPage = ({ trainData, onBack }) => {
   };
 
   return (
-    <div className="train-list-page">
-      <h1>Tren Seferleri</h1>
-      <div className="train-list">
-        {trainData && trainData.details ? (
-          trainData.details.map((train) => (
-            <TrainDetails
-              key={train.trainID}
-              train={train}
-              onSelect={handleSelectTrain}
-              isSelected={selectedTrains.some(
-                (selectedTrain) => selectedTrain.trainID === train.trainID
-              )}
-            />
-          ))
-        ) : (
-          <p>Tren seferleri yüklenemedi.</p>
-        )}
+    <div className="page-container">
+      <div className="train-list-page">
+        <h1>Tren Seferleri</h1>
+        <div className="train-list">
+          {trainData && trainData.details ? (
+            trainData.details.map((train) => (
+              <TrainDetails
+                key={train.trainID}
+                train={train}
+                onSelect={handleSelectTrain}
+                isSelected={selectedTrains.some(
+                  (selectedTrain) => selectedTrain.trainID === train.trainID
+                )}
+              />
+            ))
+          ) : (
+            <p>Tren seferleri yüklenemedi.</p>
+          )}
+        </div>
+        <div className="email-input">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            onBlur={handleEmailValidation}
+          />
+          {emailError && <small style={{ color: "red" }}>{emailError}</small>}
+        </div>
+        <button onClick={handleAddButtonClick} className="btn-add">
+          Ekle
+        </button>
+        <button onClick={onBack} className="btn-back">
+          Geri
+        </button>
+        {showSuccessMessage && <SuccessMessage onClose={handleSuccessClose} />}
       </div>
-      <div className="email-input">
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-          onBlur={handleEmailValidation}
-        />
-        {emailError && <small style={{ color: "red" }}>{emailError}</small>}
-      </div>
-      <button onClick={handleAddButtonClick} className="btn-add">
-        Ekle
-      </button>
-      <button onClick={onBack} className="btn-back">
-        Geri
-      </button>
-      {showSuccessMessage && <SuccessMessage onClose={handleSuccessClose} />}
     </div>
   );
 };

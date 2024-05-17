@@ -1,7 +1,19 @@
 /* src/pages/TrainListPage.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .train-list-page {
-  max-width: 600px;
-  margin: 40px auto;
+  max-width: 400px;
   padding: 20px;
   background-color: #f0f8ff;
   border-radius: 10px;
