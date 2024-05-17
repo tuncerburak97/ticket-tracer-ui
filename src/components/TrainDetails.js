@@ -3,7 +3,7 @@ import React from "react";
 import "./TrainDetails.css";
 
 const TrainDetails = ({ train, onSelect, isSelected }) => {
-  const isSelectable = train.emptyPlace.normalPeopleEmptyPlaceCount == 0;
+  const isSelectable = train.emptyPlace.normalPeopleEmptyPlaceCount === 0;
 
   return (
     <div
