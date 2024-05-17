@@ -1,0 +1,60 @@
+/* src/components/TrainDetails.css */
+.train-details {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 15px 0;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.train-details.selectable:hover {
+  transform: scale(1.02);
+}
+
+.train-details.unselectable {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.train-details.selected {
+  background-color: #e0f7fa;
+  border: 2px solid #00bcd4;
+}
+
+.train-details h2 {
+  color: #0056b3;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.train-details p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.empty-place-info {
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .train-details {
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .train-details h2 {
+    font-size: 1em;
+  }
+
+  .train-details p {
+    font-size: 0.8em;
+  }
+
+  .empty-place-info p {
+    font-size: 0.7em;
+  }
+}
