@@ -51,6 +51,7 @@ const TrainListPage = ({ trainData, onBack }) => {
         trainID: train.trainID,
         tourID: train.tourID,
         gidisTarih: train.departureDate,
+        inisTarih: train.arrivalDate,
         binisIstasyon: train.departureStation,
         inisIstasyonu: train.arrivalStation,
         email,
