@@ -60,7 +60,7 @@ const TrainListPage = ({ trainData, onBack }) => {
       }));
 
       axios
-        .post("https://ticket-tracer-xxetoj7zsa-uc.a.run.app/tcdd/add", {
+        .post("http://35.232.70.133/tcdd/add", {
           request: requestPayload,
         })
         .then((response) => {
