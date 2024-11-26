@@ -4,6 +4,7 @@ import axios from "axios";
 import TrainDetails from "../components/TrainDetails";
 import SuccessMessage from "../components/SuccessMessage";
 import "./TrainListPage.css";
+import { API_URL_ADD } from "../constants/api";
 
 const TrainListPage = ({ trainData, onBack }) => {
   const [selectedTrains, setSelectedTrains] = useState([]);
@@ -60,7 +61,7 @@ const TrainListPage = ({ trainData, onBack }) => {
       }));
 
       axios
-        .post("http://35.232.70.133/tcdd/add", {
+        .post(API_URL_ADD, {
           request: requestPayload,
         })
         .then((response) => {
